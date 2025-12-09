@@ -42,15 +42,23 @@ pip install -r requirements.txt
 AoC/
 ├── main.py              # Hauptmenü zum Verwalten und Ausführen der Lösungen
 ├── _template.py         # Template für neue Tage
+├── requirements.txt     # Python-Abhängigkeiten
 ├── Code/
 │   ├── loader.py        # Hilfsklasse zum Laden der Puzzle-Daten
 │   ├── 2025_01.py       # Lösung für Tag 1
 │   ├── 2025_02.py       # Lösung für Tag 2
-│   └── ...
-└── data/
-    ├── AoC_2025.01      # Puzzle-Daten für Tag 1
-    ├── AoC_2025.02      # Puzzle-Daten für Tag 2
-    └── ...
+│   ├── ...
+│   └── 2025_09.py       # Lösung für Tag 9
+├── data/
+│   ├── AoC_2025.01      # Puzzle-Daten für Tag 1
+│   ├── AoC_2025.02      # Puzzle-Daten für Tag 2
+│   ├── ...
+│   └── AoC_2025.09      # Puzzle-Daten für Tag 9
+└── docs/
+    ├── 2025_01.md       # Dokumentation Tag 1
+    ├── 2025_02.md       # Dokumentation Tag 2
+    ├── ...
+    └── 2025_09.md       # Dokumentation Tag 9
 ```
 
 ## Verwendung
@@ -89,6 +97,20 @@ python 2025_01.py
 - **Sprache**: Python 3
 - **Konvention**: Alle Code-Elemente (Variablen, Funktionen, Kommentare) auf Deutsch
 - **GetData-Klasse**: Zentrale Hilfsklasse in `loader.py` zum Laden und Verarbeiten der Puzzle-Daten
+
+## Dokumentation
+
+Jeder Tag hat eine detaillierte Dokumentation im `docs/` Ordner, die Algorithmen, Datenstrukturen und Design-Entscheidungen erklärt:
+
+- [Tag 01 - Rundlauf-Simulation](docs/2025_01.md) - Modulo-Arithmetik für zyklische Bewegungen
+- [Tag 02 - String-Muster-Analyse](docs/2025_02.md) - Palindrom-Hälften und wiederholende Muster
+- [Tag 03 - Greedy-Auswahl](docs/2025_03.md) - Greedy-Algorithmus für größte Ziffern-Auswahl
+- [Tag 04 - Zellenautomaten](docs/2025_04.md) - Simulation mit Nachbarschafts-Regeln
+- [Tag 05 - Intervall-Merge](docs/2025_05.md) - Bereichs-Zusammenführung und Prüfung
+- [Tag 06 - Spaltenweise Arithmetik](docs/2025_06.md) - Matrix-Transposition und Operatoren
+- [Tag 07 - Pfad-Verzweigungen](docs/2025_07.md) - Dynamic Programming für Pfad-Zählung
+- [Tag 08 - Minimum Spanning Tree](docs/2025_08.md) - Union-Find mit Kruskal's Algorithmus
+- [Tag 09 - Computational Geometry](docs/2025_09.md) - Polygon- und Rechteck-Operationen mit Shapely
 
 ## Jahr 2025
 
