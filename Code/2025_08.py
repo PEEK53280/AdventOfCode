@@ -20,7 +20,6 @@ def union(eltern, rang, i, j):
     return False  # Waren schon verbunden
 
 def zaehle_circuits(eltern, n):
-    """Zählt die Anzahl der verschiedenen Circuits"""
     wurzeln = set()
     for i in range(n):
         wurzeln.add(finde(eltern, i))

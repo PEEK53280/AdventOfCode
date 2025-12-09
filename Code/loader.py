@@ -14,7 +14,6 @@ class GetData:
         self.startzeit = time.perf_counter()
         print(self.hallo)
 
-
     @staticmethod
     def _caller():
         return inspect.stack()[2].filename

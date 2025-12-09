@@ -13,7 +13,7 @@ def main():
     for speicher in aufgabe.zeilen:
         aufgabe.loesung1 += solver(bank=speicher, batterien=2)
         aufgabe.loesung2 += solver(bank=speicher, batterien=12)
-    aufgabe.final()
 
 if __name__ == "__main__":
     main()
+    aufgabe.final()

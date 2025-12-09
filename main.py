@@ -129,8 +129,11 @@ def fuehre_tag_aus(tag_nummer):
         spec.loader.exec_module(modul)
         if hasattr(modul, 'main'):
             aufgabe = modul.main()
-            if hasattr(aufgabe, 'final'):
-                aufgabe.final()
+            if aufgabe:
+                if hasattr(aufgabe, 'final'):
+                    aufgabe.final()
+                else:
+                    print(aufgabe)
     except Exception as e:
         print(f"❌ Fehler beim Ausführen von Tag {tag_str}: {e}")
         import traceback
