@@ -1,52 +1,54 @@
-from bisect import insort
 import itertools
 from loader import GetData
 aufgabe = GetData()
 
-def find(parent, i):
-    if parent[i] != i:
-        parent[i] = find(parent, parent[i])
-    return parent[i]
+def finde(eltern, i):
+    if eltern[i] != i:
+        eltern[i] = finde(eltern, eltern[i])
+    return eltern[i]
 
-def union(parent, rank, i, j):
-    ri, rj = find(parent, i), find(parent, j)
+def union(eltern, rang, i, j):
+    ri, rj = finde(eltern, i), finde(eltern, j)
     if ri != rj:
-        if rank[ri] < rank[rj]:
-            parent[ri] = rj
+        if rang[ri] < rang[rj]:
+            eltern[ri] = rj
         else:
-            parent[rj] = ri
-            if rank[ri] == rank[rj]:
-                rank[ri] += 1
+            eltern[rj] = ri
+            if rang[ri] == rang[rj]:
+                rang[ri] += 1
+        return True  # Verbindung war erfolgreich
+    return False  # Waren schon verbunden
 
-def baue_netzwerke(dosen, distanzen):
-    n = len(dosen)
-    parent = list(range(n))
-    rank = [0] * n
-
-    for idx1, idx2, _ in distanzen:
-        union(parent, rank, idx1, idx2)
-
-    netzwerke = {}
+def zaehle_circuits(eltern, n):
+    """Zählt die Anzahl der verschiedenen Circuits"""
+    wurzeln = set()
     for i in range(n):
-        wurzel = find(parent, i)
-        netzwerke.setdefault(wurzel, []).append(i)
-    return list(netzwerke.values())
+        wurzeln.add(finde(eltern, i))
+    return len(wurzeln)
 
 def main():
     dosen = [[int(x) for x in dose.strip().split(",")] for dose in aufgabe.zeilen]
+    distanzen = sorted([(sum((a - b) ** 2 for a, b in zip(dose1, dose2)), idx1, idx2, dose1[0], dose2[0])
+                        for (idx1, dose1), (idx2, dose2) in itertools.combinations(enumerate(dosen), 2)])
 
-    distanzen = []
-    for (idx1, dose1), (idx2, dose2) in itertools.combinations(enumerate(dosen), 2):
-        distanz = sum((a - b) ** 2 for a, b in zip(dose1, dose2))
-        if len(distanzen) < 1000 or distanzen[-1][1]:
-            insort(distanzen, [idx1, idx2, distanz], key=lambda x: x[2])
-            (len(distanzen) > 1000) and distanzen.pop()
+    n = len(dosen)
+    eltern = list(range(n))
+    rang = [0] * n
 
-    netzwerke = baue_netzwerke(dosen, distanzen)
-    netzwerke = sorted(netzwerke, key=len, reverse=True)
-    for n in netzwerke:
-        print(len(n))
-#164475
+    for distanz, idx1, idx2, x1, x2 in distanzen[:1000]:
+        union(eltern, rang, idx1, idx2)
+    netzwerke = {}
+    for i in range(n):
+        wurzel = finde(eltern, i)
+        netzwerke.setdefault(wurzel, []).append(i)
+    sortiert = sorted(netzwerke.values(), key=len, reverse=True)
+    aufgabe.loesung1 = len(sortiert[0]) * len(sortiert[1]) * len(sortiert[2])
+
+    for distanz, idx1, idx2, x1, x2 in distanzen[1000:]:
+        if union(eltern, rang, idx1, idx2):
+            if zaehle_circuits(eltern, n) == 1:
+                aufgabe.loesung2 = x1 * x2
+                break
     return aufgabe
 
 if __name__ == "__main__":
