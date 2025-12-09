@@ -28,13 +28,13 @@ source .venv/bin/activate
 # Windows:
 .venv\Scripts\activate
 
-# Dependencies installieren (falls vorhanden)
-pip install -r requirements.txt  # optional, aktuell keine externen Abhängigkeiten
+# Dependencies installieren
+pip install -r requirements.txt
 ```
 
-### Ohne Virtual Environment
+### Dependencies
 
-Das Projekt verwendet nur die Python Standard Library, kann also auch ohne venv ausgeführt werden. Empfohlen wird jedoch die Verwendung einer venv.
+- **shapely** (ab 2.0.0): Geometrie-Bibliothek für Tag 9
 
 ## Projektstruktur
 

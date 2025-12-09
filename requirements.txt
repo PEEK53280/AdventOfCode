@@ -1,0 +1,4 @@
+# Externe Abhängigkeiten für Advent of Code 2025
+
+# Geometrie-Bibliothek für Tag 9
+shapely>=2.0.0
