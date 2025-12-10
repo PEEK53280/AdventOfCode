@@ -2,3 +2,7 @@
 
 # Geometrie-Bibliothek für Tag 9
 shapely>=2.0.0
+
+# Tag 10
+numpy>=1.24.0
+scipy
