@@ -15,5 +15,4 @@ def main():
         aufgabe.loesung2 += solver(bank=speicher, batterien=12)
 
 if __name__ == "__main__":
-    main()
-    aufgabe.final()
+    main().final()

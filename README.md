@@ -35,6 +35,8 @@ pip install -r requirements.txt
 ### Dependencies
 
 - **shapely** (ab 2.0.0): Geometrie-Bibliothek für Tag 9
+- **numpy**: Matrix-Operationen für Tag 10
+- **scipy**: MILP-Solver für Tag 10
 
 ## Projektstruktur
 
@@ -48,17 +50,20 @@ AoC/
 │   ├── 2025_01.py       # Lösung für Tag 1
 │   ├── 2025_02.py       # Lösung für Tag 2
 │   ├── ...
-│   └── 2025_09.py       # Lösung für Tag 9
+│   ├── 2025_09.py       # Lösung für Tag 9
+│   └── 2025_10.py       # Lösung für Tag 10
 ├── data/
 │   ├── AoC_2025.01      # Puzzle-Daten für Tag 1
 │   ├── AoC_2025.02      # Puzzle-Daten für Tag 2
 │   ├── ...
-│   └── AoC_2025.09      # Puzzle-Daten für Tag 9
+│   ├── AoC_2025.09      # Puzzle-Daten für Tag 9
+│   └── AoC_2025.10      # Puzzle-Daten für Tag 10
 └── docs/
     ├── 2025_01.md       # Dokumentation Tag 1
     ├── 2025_02.md       # Dokumentation Tag 2
     ├── ...
-    └── 2025_09.md       # Dokumentation Tag 9
+    ├── 2025_09.md       # Dokumentation Tag 9
+    └── 2025_10.md       # Dokumentation Tag 10
 ```
 
 ## Verwendung
@@ -111,6 +116,7 @@ Jeder Tag hat eine detaillierte Dokumentation im `docs/` Ordner, die Algorithmen
 - [Tag 07 - Pfad-Verzweigungen](docs/2025_07.md) - Dynamic Programming für Pfad-Zählung
 - [Tag 08 - Minimum Spanning Tree](docs/2025_08.md) - Union-Find mit Kruskal's Algorithmus
 - [Tag 09 - Computational Geometry](docs/2025_09.md) - Polygon- und Rechteck-Operationen mit Shapely
+- [Tag 10 - Lineare Gleichungssysteme](docs/2025_10.md) - GF(2) Brute-Force und MILP
 
 ## Jahr 2025
 

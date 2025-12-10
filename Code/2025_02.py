@@ -24,5 +24,4 @@ def main():
     return aufgabe
 
 if __name__ == "__main__":
-    main()
-    aufgabe.final()
+    main().final()
